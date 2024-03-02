@@ -1,0 +1,28 @@
+.wrapper {
+    width: 100%;
+    height: 100vh;
+}
+
+.accordian {
+    width: 960px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.item {
+    padding: 16px;
+    margin-bottom: 16px;
+    background-color: darkslategray;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.content {
+    height: auto;
+    text-align: left;
+}
