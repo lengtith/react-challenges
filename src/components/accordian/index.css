@@ -3,6 +3,12 @@
     height: 100vh;
 }
 
+.wrapper button {
+    padding: 12px 16px;
+    background-color: darkslategray;
+    margin-bottom: 20px;
+}
+
 .accordian {
     width: 960px;
     display: flex;
