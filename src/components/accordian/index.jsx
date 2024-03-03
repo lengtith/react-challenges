@@ -1,6 +1,6 @@
 import { useState } from "react"
 import data from "./data"
-import './index.css'
+import styles from './style.module.css';
 
 const Accordian = () => {
     const [selected, setSelected] = useState(null);
@@ -32,28 +32,28 @@ const Accordian = () => {
 
 
     return (
-        <div className="wrapper">
+        <div className={styles.wrapper}>
             <button onClick={() => handleIsMultiSelections()}>
                 {
                     isMultiSelections ? "Closed " : "Enable "
                 }
                 Multi Selection
             </button>
-            <div className="accordian">
+            <div className={styles.accordian}>
                 {
                     data && data.length > 0
                         ? data.map((item, index) => (
-                            <div key={index} className="item">
-                                <div className="title" onClick={() => isMultiSelections ? handleMultiSelection(item.id) : handleSingleSelection(item.id)}>
+                            <div key={index} className={styles.item}>
+                                <div className={styles.title} onClick={() => isMultiSelections ? handleMultiSelection(item.id) : handleSingleSelection(item.id)}>
                                     <h3>{item.title}</h3>
                                     <span>+</span>
                                 </div>
                                 {isMultiSelections
                                     ? multiples.indexOf(item.id) !== -1 && (
-                                        <div className="content">{item.info}</div>
+                                        <div className={styles.content}>{item.info}</div>
                                     )
                                     : selected === item.id && (
-                                        <div className="content">{item.info}</div>
+                                        <div className={styles.content}>{item.info}</div>
                                     )
                                 }
                             </div>
