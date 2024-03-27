@@ -5,7 +5,8 @@
 // import RandomColor from './components/random-color';
 // import StarRating from "./components/star-rating";
 // import TreeView from "./components/tree-view";
-import LightDarkMode from "./components/light-dark-mode";
+// import LightDarkMode from "./components/light-dark-mode";
+import ScrollIndicator from "./components/scroll-indicator";
 
 function App() {
 
@@ -18,7 +19,8 @@ function App() {
       <LoadMoreData/> */}
       {/* <TreeView/> */}
       {/* <QRCodeGenerator/> */}
-      <LightDarkMode/>
+      {/* <LightDarkMode/> */}
+      <ScrollIndicator/>
     </>
   )
 }
