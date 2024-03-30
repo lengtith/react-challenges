@@ -6,9 +6,10 @@
 // import StarRating from "./components/star-rating";
 // import TreeView from "./components/tree-view";
 // import LightDarkMode from "./components/light-dark-mode";
-import ModalTest from "./components/modal/modal-test";
-import ScrollIndicator from "./components/scroll-indicator";
-import TabTest from "./components/tabs/tab-test";
+import GithubFind from "./components/github-find";
+// import ModalTest from "./components/modal/modal-test";
+// import ScrollIndicator from "./components/scroll-indicator";
+// import TabTest from "./components/tabs/tab-test";
 
 function App() {
 
@@ -24,7 +25,8 @@ function App() {
       {/* <LightDarkMode/> */}
       {/* <ScrollIndicator/> */}
       {/* <TabTest/> */}
-      <ModalTest/>
+      {/* <ModalTest/> */}
+      <GithubFind/>
     </>
   )
 }
