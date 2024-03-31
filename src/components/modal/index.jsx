@@ -1,10 +1,15 @@
+import { useRef } from 'react'
 import './modal.css'
+import useOutsideClick from './outsideClick';
 
 const Modal = ({ id, header, body, footer, onClose }) => {
+    const ref = useRef();
+    useOutsideClick(ref, onClose);
+
     return (
         <div id={id || 'modal'} className='modal-overlay'>
             <div className='modal'>
-                <div className="modal-content">
+                <div ref={ref} className="modal-content">
                     <div className="header">
                         <span onClick={onClose} className='close-btn'>&times;</span>
                         <h2>
