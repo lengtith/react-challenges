@@ -1,10 +1,20 @@
+import { Routes, Route } from "react-router-dom"
+import Header from "./components/Header"
+import Home from "./pages/Home"
+import FoodDetail from "./pages/FoodDetail"
+import Favorites from "./pages/Favorites"
+
 function App() {
 
   return (
     <>
-      <h1 className="text-3xl font-bold underline text-red-700">
-      Hello world!
-    </h1>
+      <Header />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/:id" element={<FoodDetail />} />
+        <Route path="/favorites" element={<Favorites />} />
+      </Routes>
     </>
   )
 }
