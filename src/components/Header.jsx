@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { GlobalContext } from '../context/GlobalContext'
 
 const Header = () => {
-    const { fetchFoods } = useContext(GlobalContext);
+    const { fetchFoods, favoritesList } = useContext(GlobalContext);
     const [search, setSearch] = useState("");
 
     const handleSearch = () => {
@@ -19,9 +19,12 @@ const Header = () => {
                         <NavLink to={`/`} className={({ isActive }) =>
                             isActive ? "text-blue-500" : ""
                         }>Home</NavLink>
-                        <NavLink to={`/favorites`} className={({ isActive }) =>
-                            isActive ? "text-blue-500" : ""
-                        }>Favorites</NavLink>
+                        <NavLink
+                            to={`/favorites`}
+                            className={({ isActive }) => isActive ? "text-blue-500" : "" + "relative"}>
+                            Favorites
+                            {favoritesList.length > 0 && <span className='absolute w-1 h-1 rounded bg-red-400 top-0 right-0'></span>}
+                        </NavLink>
                     </div>
                 </div>
                 {/* <div className='absolute left-1/2 transform -translate-x-1/2 flex gap-2'></div> */}
