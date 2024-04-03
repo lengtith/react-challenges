@@ -11,7 +11,7 @@ const Header = () => {
     }
 
     return (
-        <nav className='bg-slate-300 shadow-lg'>
+        <nav className='bg-slate-300 shadow-lg sticky top-0'>
             <div className='relative mx-auto flex max-w-6xl justify-between items-center h-20'>
                 <div className='flex items-center gap-20'>
                     <h4 className='font-bold text-2xl'>Logo</h4>
