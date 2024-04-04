@@ -1,14 +1,6 @@
-import { useContext, useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import { GlobalContext } from '../context/GlobalContext'
 
 const Header = () => {
-    const { fetchFoods, favoritesList } = useContext(GlobalContext);
-    const [search, setSearch] = useState("");
-
-    const handleSearch = () => {
-        fetchFoods(search);
-    }
 
     return (
         <nav className='bg-slate-300 shadow-lg sticky top-0'>
@@ -20,18 +12,14 @@ const Header = () => {
                             isActive ? "text-blue-500" : ""
                         }>Home</NavLink>
                         <NavLink
-                            to={`/favorites`}
+                            to={`/cart`}
                             className={({ isActive }) => isActive ? "text-blue-500" : "" + "relative"}>
-                            Favorites
-                            {favoritesList.length > 0 && <span className='absolute w-1 h-1 rounded bg-red-400 top-0 right-0'></span>}
+                            Cart
+                            {/* {favoritesList.length > 0 && <span className='absolute w-1 h-1 rounded bg-red-400 top-0 right-0'></span>} */}
                         </NavLink>
                     </div>
                 </div>
                 {/* <div className='absolute left-1/2 transform -translate-x-1/2 flex gap-2'></div> */}
-                <div>
-                    <input type="text" placeholder='Search food' className='w-96 px-3 py-2 rounded-lg border-2 border-gray-300 focus:outline-none focus:border-blue-500 mr-1' onChange={(e) => setSearch(e.target.value)} />
-                    <button className='px-3 py-2 bg-blue-500 border-2 border-blue-500 focus:border-white rounded-lg text-white' onClick={handleSearch}>Search</button>
-                </div>
             </div>
         </nav>
     )
