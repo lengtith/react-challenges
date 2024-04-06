@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react"
-import { useDispatch } from "react-redux";
-import { addToCart } from "../store/cart-slice";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, removeFromCart } from "../store/cart-slice";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
+  const { cart } = useSelector(state => state);
 
-  const fetchProducts = async() => {
+  const fetchProducts = async () => {
     try {
       setLoading(true);
       const response = await fetch("https://fakestoreapi.com/products");
@@ -24,10 +25,14 @@ const Home = () => {
 
   useEffect(() => {
     fetchProducts();
-  },[])
+  }, [])
 
   const handleAddToCart = (product) => {
     dispatch(addToCart(product));
+  }
+
+  const handleRemoveFromCart = (product) => {
+    dispatch(removeFromCart(product.id))
   }
 
   if (loading) {
@@ -51,9 +56,11 @@ const Home = () => {
                 </h3>
                 <button
                   className="text-sm p-3 mt-5 px-8 rounded-lg uppercase font-medium tracking-wider inline-block shadow-md bg-black text-white"
-                  onClick={()=> handleAddToCart(item)}
+                  onClick={() => cart.some(cartItem => cartItem.id === item.id) ? handleRemoveFromCart(item.id) : handleAddToCart(item)}
                 >
-                  Add to cart
+                  {
+                    cart.some(cart => cart.id === item.id) ? 'Remove from cart' : 'Add to cart'
+                  }
                 </button>
               </div>
             </div>
